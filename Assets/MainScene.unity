@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootFolders:
-  - D:\Amnesia\2013_12_19
+  - C:\dev\UnityAmnesiaVisualizer\UnityProj\Autographer\2013_12_19
   visualizations: []
   DoubleSidedMesh: {fileID: 0}
   currentlySelectedVis: 0
