@@ -97,39 +97,14 @@ public class Visualization : MonoBehaviour {
 			GameObject q = GameObject.CreatePrimitive(PrimitiveType.Cube);
 			
 			q.transform.parent = this.transform;
-
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(50, 50, 50);
+			q.transform.localScale = new Vector3(50, -0.1f, 50);
 
-			/* Ignore texturing for now */
-			/*
-			if (i < 40)
-			{
-				//Texture tex = (Texture)Resources.LoadAssetAtPath(rootDir + "\\" + mdi.filename, typeof(Texture));
-				WWW www = new WWW("file:///D:/Amnesia/2013_12_19/09/B00000000_21I4N2_20131219_091515E.JPG");
-				Texture2D texTmp = new Texture2D(128, 128, TextureFormat.DXT1, false);
-				//LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5     
-				www.LoadImageIntoTexture(texTmp);
-				///loadImageUrl(www);
-				//Texture tex = (Texture)Resources.LoadAssetAtPath("D:/Amnesia/2013_12_19/09/B00000000_21I4N2_20131219_091515E.JPG", typeof(Texture));
-				q.renderer.material.mainTexture = www.texture;
-			}
-			*/
-			//q.GetComponent<MeshFilter>().mesh = this.DoubleSidedMesh;
-			//q.renderer.material.shader = transDiff;
-			/*
-			icImageMaterial icm = q.AddComponent<icImageMaterial>();
-			icm.filePath = "file:///" + rootDir + mdi.filename;			
-			icm.icColour = Color.clear;
-			FadeColour fc = q.AddComponent<FadeColour>();
-			
-			fc.duration = 0;
-			fc.enabled = false;
-			fc.removeWhenFinished = true;
-			fc.targetColour = Color.white;
-			
-			icm.mediaReadyCallbacks.Add(fc);
-			*/
+			WWW www = new WWW("file:///" + rootDir + mdi.filename);
+			/* FIXME : do something smarter than just busy wait for it to load */
+			while (!www.isDone) {}
+			q.renderer.material.mainTexture = www.texture;
+
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
 			i += 1;

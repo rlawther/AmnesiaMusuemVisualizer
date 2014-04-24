@@ -61,7 +61,7 @@ public class AutographerParser : MetadataParser {
 		Medium,
 		High
 	};
-	public ImageResolution imageResolution = ImageResolution.High;
+	public ImageResolution imageResolution = ImageResolution.Low;
 	
 	private string ImageResolutionPrefix(ImageResolution ir) {
 		if (ir == ImageResolution.High) {
