@@ -8,12 +8,20 @@ using System.Collections.Generic;
 public class VisualizerManager : MonoBehaviour {
 	
 	//private VisOptions visOps;
+	[System.Serializable]
+	public class Dataset {
+		public string csvMetadataFile;
+		public string imageDirectory;
+		public string imageExtension;
+	}
+
+	public Dataset[] datasets;
 	private string rootDir;
-	public string[] rootFolders;
+	//public string[] rootFolders;
 	
 	public Visualization[] visualizations;
 	
-	public Mesh DoubleSidedMesh;
+	//public Mesh DoubleSidedMesh;
 	//public LockToPath pather;
 	public int currentlySelectedVis = 0;
 	
@@ -26,9 +34,9 @@ public class VisualizerManager : MonoBehaviour {
 
 	protected void Start() {
 		//this.visOps = this.GetComponent<VisOptions>();
-		this.visualizations = new Visualization[rootFolders.Length];
-		for (int i = 0; i < rootFolders.Length; i++) {			
-			Visualization v = this.createVisualization(rootFolders[i]);
+		this.visualizations = new Visualization[datasets.Length];
+		for (int i = 0; i < datasets.Length; i++) {			
+			Visualization v = this.createVisualization(datasets[i]);
 			visualizations[i] = v;
 		}
 		//visOps.SetVisualizations(this.visualizations);
@@ -37,20 +45,23 @@ public class VisualizerManager : MonoBehaviour {
 		}
 	}
 	
-	protected Visualization createVisualization(string rootFolder) { 
+	protected Visualization createVisualization(Dataset dataset) { 
 		GameObject go = new GameObject();
-		string folderName = new DirectoryInfo(rootFolder).Name;
+		//string folderName = new DirectoryInfo(rootFolder).Name;
 		Visualization v = go.AddComponent<Visualization>();		
-		go.name = folderName;				
+		go.name = dataset.csvMetadataFile;				
 		AutographerParser parser = go.AddComponent<AutographerParser>();
 		//parser.allowInterp = this.GetComponent<AutographerParser>().allowInterp;
 		//parser.imageResolution = this.GetComponent<AutographerParser>().imageResolution;		
 		
-		v.projectName = rootFolder;
+		v.projectName = dataset.csvMetadataFile;
+		v.csvMetadataFile = dataset.csvMetadataFile;
+		v.imageDirectory = dataset.imageDirectory;
+		v.imageExtension = dataset.imageExtension;
 		//v.tb = this;
 		v.targetMetadataParser = v.GetComponent<MetadataParser>();
 		//v.pather = this.pather;
-		v.DoubleSidedMesh = this.DoubleSidedMesh;
+		//v.DoubleSidedMesh = this.DoubleSidedMesh;
 		//v.transform.parent = this.sceneParent;
 		return v;
 	}
@@ -62,12 +73,13 @@ public class VisualizerManager : MonoBehaviour {
 		}
 			
 	}
+
 	protected void syncGPSPathways() {
-		for (int i = 0; i < rootFolders.Length; i++) {
+		for (int i = 0; i < datasets.Length; i++) {
 			if (!this.visualizations[i].QuadsHaveBeenCreated()) return;
 		}
 
-		for (int i = 1; i < rootFolders.Length; i++) {
+		for (int i = 1; i < datasets.Length; i++) {
 			Visualization v = this.visualizations[i];
 			Vector3 initialGPS = this.visualizations[0].calculateParentGPS();
 			Vector3 result = v.calculateGroupOffset(initialGPS);

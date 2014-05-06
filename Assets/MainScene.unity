@@ -167,10 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dc083e991181d429783c574ceb62c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootFolders:
-  - C:\dev\UnityAmnesiaVisualizer\UnityProj\Autographer\2013_12_19
+  datasets:
+  - csvMetadataFile: D:\Amnesia\2013_12_19\image_table.txt
+    imageDirectory: D:\Amnesia\2013_12_19\images_256x192
+    imageExtension: 2.jpg
   visualizations: []
-  DoubleSidedMesh: {fileID: 0}
   currentlySelectedVis: 0
   lineMaterial: {fileID: 0}
 --- !u!114 &662691868

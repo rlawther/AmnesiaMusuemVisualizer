@@ -61,6 +61,8 @@ public class AutographerParser : MetadataParser {
 		Medium,
 		High
 	};
+
+
 	public ImageResolution imageResolution = ImageResolution.Low;
 	
 	private string ImageResolutionPrefix(ImageResolution ir) {
@@ -99,8 +101,11 @@ public class AutographerParser : MetadataParser {
 			{
 				AutographerMetaDataItem mdi = new AutographerMetaDataItem();
 				if (float.TryParse(row[(int)GraphField.Latitude], out mdi.latitude)) {
+					/*
 					mdi.filename = HourFolder(row[(int)GraphField.id]) + this.ImageResolutionPrefix(this.imageResolution) 
 								   + row[(int)GraphField.id] + this.ImageResolutionSuffix(this.imageResolution) + ".jpg";
+					*/
+					mdi.filename = row[(int)GraphField.id];
 					mdi.longitude = float.Parse(row[(int)GraphField.Longitude]);
 					mdi.altitude = float.Parse(row[(int)GraphField.Altidude]);
 					

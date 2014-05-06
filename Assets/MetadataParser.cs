@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 
 public abstract class MetadataParser : MonoBehaviour {
+	public string csvMetadataFile;
+	public string imageDirectory;
+
 	private string projectName = "";
 	public string ProjectName 
 	{
@@ -41,14 +44,16 @@ public abstract class MetadataParser : MonoBehaviour {
 	void Update () {
 		if (!this.parsed && this.projectName != "") {
 			this.parsed = true;
+			/*
 			string folder = Path.GetFullPath(this.projectName + "/");
 			DirectoryInfo di = new DirectoryInfo(folder);
 			FileInfo[] fi = di.GetFiles("*.txt");	
 			if (fi.Length <= 0) {
 				throw new FileNotFoundException("No .txt files in directory specified!");
 			}
-			this.projectRoot = folder;			
-			this.parseFile(fi[0].FullName);
+			*/
+			//this.projectRoot = folder;			
+			this.parseFile(this.csvMetadataFile);
 		}
 	}
 	

@@ -25,6 +25,9 @@ public class Visualization : MonoBehaviour {
 	//public LockToPath pather;
 	
 	public string projectName;
+	public string csvMetadataFile;
+	public string imageDirectory;
+	public string imageExtension;
 	//public ToolbeltManager tb;
 	public MetadataParser targetMetadataParser;
 	
@@ -44,6 +47,7 @@ public class Visualization : MonoBehaviour {
 	void Update () {
 		if (this.targetMetadataParser.ProjectName == null || this.targetMetadataParser.ProjectName == "") {
 			this.targetMetadataParser.ProjectName = this.projectName;			
+			this.targetMetadataParser.csvMetadataFile = this.csvMetadataFile;			
 		}
 		
 		if (this.targetMetadataParser.output != null && !this.createdQuads) {
@@ -76,18 +80,6 @@ public class Visualization : MonoBehaviour {
 		}
 	}
 
-	/*
-	IEnumerator loadImageUrl(WWW www)
-	{
-		yield return www;
-		
-		if (www.error != null)
-		{
-			Debug.LogError("WWW Error: "+ www.error);
-		}    
-	} 
-	*/
-	
 	protected void createQuads() {
 		//Shader transDiff = Shader.Find ("Transparent/Diffuse");
 		this.quadList = new Transform[this.targetMetadataParser.output.Count];
@@ -95,12 +87,12 @@ public class Visualization : MonoBehaviour {
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			// FIXME : just creating a cube for now. Needs to be a quad with an image
 			GameObject q = GameObject.CreatePrimitive(PrimitiveType.Cube);
-			
+
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(50, -0.1f, 50);
 
-			WWW www = new WWW("file:///" + rootDir + mdi.filename);
+			WWW www = new WWW("file:///" + this.imageDirectory + "\\" + mdi.filename + this.imageExtension);
 			/* FIXME : do something smarter than just busy wait for it to load */
 			while (!www.isDone) {}
 			q.renderer.material.mainTexture = www.texture;
