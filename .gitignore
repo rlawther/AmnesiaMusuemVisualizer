@@ -1,8 +1,6 @@
 .DS_Store
 Library
 Temp
-*.csproj
+*.meta
 *.pidb
-*.unityproj
-*.sln
 *.userprefs
