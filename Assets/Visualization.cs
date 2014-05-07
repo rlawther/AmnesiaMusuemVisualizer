@@ -92,7 +92,7 @@ public class Visualization : MonoBehaviour {
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(50, -0.1f, 50);
 
-			WWW www = new WWW("file:///" + this.imageDirectory + "\\" + mdi.filename + this.imageExtension);
+			WWW www = new WWW("file:///" + this.imageDirectory + "\\" + mdi.filename);
 			/* FIXME : do something smarter than just busy wait for it to load */
 			while (!www.isDone) {}
 			q.renderer.material.mainTexture = www.texture;
