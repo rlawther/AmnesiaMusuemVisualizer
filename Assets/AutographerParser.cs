@@ -172,6 +172,4 @@ public class AutographerParser : MetadataParser {
 		return result;
 		
 	}
-	
-	delegate float Extractor(AutographerMetaDataItem mdi); //used in extractField
 }
