@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   datasets:
-  - csvMetadataFile: D:\Amnesia\2013_12_19\image_table.txt
-    imageDirectory: D:\Amnesia\2013_12_19\images_256x192
-    imageExtension: 2.jpg
+  - csvMetadataFile: Assets\DATA\image_table.txt
+    imageDirectory: Assets\DATA\autographer_3March_BoyCarlton_Img640480
+    imageExtension: .jpg
   visualizations: []
   currentlySelectedVis: 0
   lineMaterial: {fileID: 0}
