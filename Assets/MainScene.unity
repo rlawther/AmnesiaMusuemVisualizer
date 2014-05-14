@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   datasets:
-  - csvMetadataFile: D:\Amnesia\2013_12_19\image_table.txt
-    imageDirectory: D:\Amnesia\2013_12_19\images_256x192
+  - csvMetadataFile: Assets/DATA/image_table_1.CSV
+    imageDirectory: /Users/JackDavis/Projects/AmnesiaMusuemVisualizer/Assets/DATA/autographer_3March_BoyCarlton_Img640480
     imageExtension: 2.jpg
   visualizations: []
   currentlySelectedVis: 0
