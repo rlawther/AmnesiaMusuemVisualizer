@@ -84,7 +84,6 @@ public class AutographerParser : MetadataParser {
 					foreach(var field in row){
 						columns.Add(field);
 					}
-					Debug.Log("build column definition");
 				}else{
 					//Other rows to fill data
 					result.Add (new AutographerMetaDataItem(){
@@ -113,7 +112,6 @@ public class AutographerParser : MetadataParser {
 				rowIndex++;
 			}
 		}
-		Debug.Log("Done reading metadata! Found "+result.Count+ " items");
 		
 		int lastValueIndex = 0;		
 		//now go through again, finding the last index with non-zero longitude
