@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ReadWriteCsv;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 
