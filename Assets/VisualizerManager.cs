@@ -35,7 +35,10 @@ public class VisualizerManager : MonoBehaviour {
 	protected void Start() {
 		//this.visOps = this.GetComponent<VisOptions>();
 		this.visualizations = new Visualization[datasets.Length];
-		for (int i = 0; i < datasets.Length; i++) {			
+		for (int i = 0; i < datasets.Length; i++) {
+			var dataset = datasets[i];
+			dataset.imageDirectory = Path.GetFullPath(dataset.imageDirectory);
+
 			Visualization v = this.createVisualization(datasets[i]);
 			visualizations[i] = v;
 		}

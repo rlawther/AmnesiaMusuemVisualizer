@@ -92,10 +92,7 @@ public class Visualization : MonoBehaviour {
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(50, -0.1f, 50);
 
-			WWW www = new WWW("file:///" + this.imageDirectory + "\\" + mdi.filename + this.imageExtension);
-			/* FIXME : do something smarter than just busy wait for it to load */
-			while (!www.isDone) {}
-			q.renderer.material.mainTexture = www.texture;
+			StartCoroutine(WaitForTexture(q,mdi));
 
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
@@ -105,6 +102,13 @@ public class Visualization : MonoBehaviour {
 		this.canUpdateLive = true;
 		this.calculateQuadPositions();
 		
+	}
+
+	private IEnumerator WaitForTexture (GameObject q,MetaDataItem mdi)
+	{
+		WWW www = new WWW ("file:///" + this.imageDirectory + "/" + mdi.filename);
+		yield return www;
+		q.renderer.material.mainTexture = www.texture;
 	}
 	
 	void calculateQuadPositions() {
