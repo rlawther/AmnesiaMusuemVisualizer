@@ -6,3 +6,7 @@ Temp
 *.unityproj
 *.sln
 *.userprefs
+Assets/AVIE
+Assets/AVIE.meta
+Assets/Toolbelt
+Assets/Toolbelt.meta

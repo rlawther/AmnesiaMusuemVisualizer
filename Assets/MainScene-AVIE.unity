@@ -74,6 +74,58 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1001 &453573693
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1274.3418
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2772
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9987.39551
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -.985546649
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: .0481511615
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: .0966461003
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -.130533278
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_RootGameObject: {fileID: 1467500982}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &662691861
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +239,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 1
   _moveSpeed: 4
+--- !u!1 &889957703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 889957704}
+  - 33: {fileID: 889957706}
+  - 23: {fileID: 889957705}
+  m_Layer: 0
+  m_Name: default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &889957704
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  m_GameObject: {fileID: 889957703}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1467500984}
+--- !u!23 &889957705
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: 8e2b98238ba6d9941a125703324325dd,
+    type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  m_GameObject: {fileID: 889957703}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 1b484b876fcbb91408aaac39238041dd, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &889957706
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: 8e2b98238ba6d9941a125703324325dd,
+    type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  m_GameObject: {fileID: 889957703}
+  m_Mesh: {fileID: 4300000, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+--- !u!1 &1467500982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1467500984}
+  - 95: {fileID: 1467500983}
+  m_Layer: 0
+  m_Name: syd_lowPoly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1467500983
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: 8e2b98238ba6d9941a125703324325dd,
+    type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  m_GameObject: {fileID: 1467500982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
+--- !u!4 &1467500984
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 8e2b98238ba6d9941a125703324325dd, type: 3}
+  m_PrefabInternal: {fileID: 453573693}
+  m_GameObject: {fileID: 1467500982}
+  m_LocalRotation: {x: -.985546649, y: .0481511615, z: .0966461003, w: -.130533278}
+  m_LocalPosition: {x: 1274.3418, y: 2772, z: 9987.39551}
+  m_LocalScale: {x: 1000, y: 1000, z: 1000}
+  m_Children:
+  - {fileID: 889957704}
+  m_Father: {fileID: 0}
 --- !u!1 &1541811678
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +444,10 @@ Prefab:
     - target: {fileID: 11400000, guid: ae6e2df72cc90b94da777eac8a887c0c, type: 2}
       propertyPath: InputEnabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: ae6e2df72cc90b94da777eac8a887c0c, type: 2}
+      propertyPath: far clip plane
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae6e2df72cc90b94da777eac8a887c0c, type: 2}
@@ -483,7 +640,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .300000012
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 100
