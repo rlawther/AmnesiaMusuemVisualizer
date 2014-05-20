@@ -5,7 +5,6 @@ using System.IO;
 
 public abstract class MetadataParser : MonoBehaviour {
 	public string csvMetadataFile;
-	public string imageDirectory;
 
 	private string projectName = "";
 	public string ProjectName 
