@@ -13,7 +13,7 @@ public class TriggerBehaviour : MonoBehaviour {
 	
 	}
 	void OnTriggerEnter(Collider other) {
-		Debug.Log ("Collided with " + other.name);
+		//Debug.Log ("Collided with " + other.name);
 		/* Ignore collision with other quads */
 		if (!other.name.StartsWith("QuadTemplate"))
 			gameObject.rigidbody.isKinematic = true;
