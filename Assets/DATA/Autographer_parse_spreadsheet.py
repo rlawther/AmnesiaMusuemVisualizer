@@ -38,7 +38,7 @@ if ((args.i == None) & (args.u == None)):
 	print "  -u URL path for images"
 	print ""
 	print ""
-	
+
 if (args.i != None):
 	AutographerDataFile = args.i
 	try:
@@ -53,7 +53,7 @@ else:
 	#exit
 if (args.u == None):
 	print "no image URL provided"
-	
+
 filePath = os.path.abspath(AutographerDataFile)
 path, filename = os.path.split(os.path.abspath(AutographerDataFile)) #path + filename of data
 
@@ -89,6 +89,7 @@ for line in f:
 			items.insert(3,"") #image url
 			items.insert(4,"") #image File
 			items.insert(5, "") #episode
+			items.insert(6, "") #priority
 			items.insert(24, items[22] + " " + items[23]) # lat long
 			if (items[22] == "0.00000"): items.insert(25, "1") #locInterpolated
 			else: items.insert(25, "0")
@@ -105,8 +106,8 @@ for i in range(0, len(data[0])):
 	if data[0][i] == 'imgURL': index_imgURL = i
 	if data[0][i] == 'imgFile': index_imgFile = i
 	if data[0][i] == 'id': index_id = i
-	if data[0][i] == 'episode': index_id = i
-	if data[0][i] == 'priority': index_id = i
+	if data[0][i] == 'episode': index_episode = i
+	if data[0][i] == 'priority': index_priority = i
 
 if (args.u != None):  #image url
 	print ""
@@ -126,29 +127,29 @@ def interpolate(startIndex, endIndex):
 	latIncr = (float(data[endIndex][index_lat]) - float(data[startIndex][index_lat])) / (endIndex - startIndex)
 	lonIncr = (float(data[endIndex][index_lon]) - float(data[startIndex][index_lon])) / (endIndex - startIndex)
 	altIncr = (float(data[endIndex][index_alt]) - float(data[startIndex][index_alt])) / (endIndex - startIndex)
-	
+
 	for x in range(startIndex +1,endIndex ):
 		indexList.append(x)
 	latLonAltList.append(indexList)
-	
+
 	t = float(data[startIndex][index_lat])
 	for x in range(0,(endIndex - startIndex -1)):
 		t = t + latIncr
 		latList.append(t)
 	latLonAltList.append(latList)
-	
+
 	t = float(data[startIndex][index_lon])
 	for x in range(0,(endIndex - startIndex -1)):
 		t = t + lonIncr
 		lonList.append(t)
 	latLonAltList.append(lonList)	
-	
+
 	t = float(data[startIndex][index_alt])
 	for x in range(0,(endIndex - startIndex -1)):
 		t = t + altIncr
 		altList.append(t)
 	latLonAltList.append(altList)
-	
+
 	return latLonAltList
 
 i1 = 0
@@ -169,7 +170,7 @@ for i in range(2, len(data)-1):
 		i1 = 0
 		i2 = 0
 		temp_interp = []
-		
+
 # print data[125][index_lat]
 # print data[132][index_lat]
 
@@ -187,6 +188,3 @@ print os.path.split(filePath)[0]
 with open( os.path.join(path, (filename[0:len(filename)-4]) + "_1.CSV") , 'wb') as myfile:
     wr = csv.writer(myfile, quoting=csv.QUOTE_NONE)
     for row in data:  wr.writerow(row)
-
-
-
