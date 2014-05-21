@@ -16,7 +16,7 @@ Steven:
 - priority meta data in viz
 - orientation of quads to align with next/prev quad in sequence (processing data in python) 
 - edit Python script to add priority column to csv (after episode column)
-- low poly landmarks models (mesh lab)
+- (DONE) low poly landmarks models (mesh lab)
 - check mesh model orientation/anchor (mesh lab)
 - iterative landmark models (fragmented)
 - try photogrammetry of la peruse landscape mesh
