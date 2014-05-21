@@ -33,6 +33,7 @@ public class Visualization : MonoBehaviour {
 	
 	public string rootDir;
 	public Mesh DoubleSidedMesh;
+	public GameObject quadTemplate;
 	public Transform[] quadList;
 	// Use this for initialization
 	private const double m_per_deg_lat = 111132.954f;
@@ -86,10 +87,10 @@ public class Visualization : MonoBehaviour {
 		int i = 0;
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			// FIXME : just creating a cube for now. Needs to be a quad with an image
-			GameObject q = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			GameObject q = (GameObject)Instantiate(quadTemplate);
 
 			// Need this to be able to walk through the quads
-			q.collider.isTrigger = true;
+			//q.collider.isTrigger = true;
 
 			// Need this to make quads fall under gravity
 			//q.AddComponent<Rigidbody>();
@@ -98,7 +99,7 @@ public class Visualization : MonoBehaviour {
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(50, 50, 50);
-			q.GetComponent<MeshFilter>().mesh = this.DoubleSidedMesh;
+			//q.GetComponent<MeshFilter>().mesh = this.DoubleSidedMesh;
 
 
 			StartCoroutine(WaitForTexture(q,mdi));
