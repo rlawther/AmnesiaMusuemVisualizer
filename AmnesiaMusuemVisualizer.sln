@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{20C12701-7E9A-18C6-EBE7-042919724A2B}") = "AmnesiaMusuemVisualizer", "Assembly-CSharp.csproj", "{BF30A19F-4FB6-8012-B710-8913C298EB38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+					GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+	EndGlobalSection
+
+EndGlobal

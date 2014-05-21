@@ -6,7 +6,7 @@ public class Visualization : MonoBehaviour {
 	public Vector3 visualizationScale = new Vector3(1.0f,1.0f,1.0f);
 	private Vector3 _visualizationScale = new Vector3(1.0f,1.0f,1.0f);
 	
-	public Vector3 rotateAll = new Vector3(0f,0f,0f);
+	public Vector3 rotateAll = new Vector3(90f,0f,0f);
 	private Vector3 _rotateAll = new Vector3(0f,0f,0f);
 	public Vector3 rotateMult = new Vector3(1f,1f,1f);
 	public bool canUpdateLive = false;
@@ -88,23 +88,38 @@ public class Visualization : MonoBehaviour {
 			// FIXME : just creating a cube for now. Needs to be a quad with an image
 			GameObject q = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
+			// Need this to be able to walk through the quads
+			q.collider.isTrigger = true;
+
+			// Need this to make quads fall under gravity
+			//q.AddComponent<Rigidbody>();
+
+
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(50, -0.1f, 50);
+			q.transform.localScale = new Vector3(50, 50, 50);
+			q.GetComponent<MeshFilter>().mesh = this.DoubleSidedMesh;
 
-			WWW www = new WWW("file:///" + this.imageDirectory + "\\" + mdi.filename + this.imageExtension);
-			/* FIXME : do something smarter than just busy wait for it to load */
-			while (!www.isDone) {}
-			q.renderer.material.mainTexture = www.texture;
+
+			StartCoroutine(WaitForTexture(q,mdi));
 
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
+			//q.transform.Rotate(90, 0, 0);
+
 			i += 1;
 
 		}
 		this.canUpdateLive = true;
 		this.calculateQuadPositions();
 		
+	}
+
+	private IEnumerator WaitForTexture (GameObject q,MetaDataItem mdi)
+	{
+		WWW www = new WWW ("file:///" + this.imageDirectory + "/" + mdi.filename);
+		yield return www;
+		q.renderer.material.mainTexture = www.texture;
 	}
 	
 	void calculateQuadPositions() {

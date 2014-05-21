@@ -1,8 +1,10 @@
 .DS_Store
 Library
 Temp
-*.csproj
 *.pidb
-*.unityproj
-*.sln
 *.userprefs
+Assets/AVIE
+Assets/AVIE.meta
+Assets/Toolbelt
+Assets/Toolbelt.meta
+*~

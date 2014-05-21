@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ReadWriteCsv;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 
@@ -21,7 +21,7 @@ public class VisualizerManager : MonoBehaviour {
 	
 	public Visualization[] visualizations;
 	
-	//public Mesh DoubleSidedMesh;
+	public Mesh DoubleSidedMesh;
 	//public LockToPath pather;
 	public int currentlySelectedVis = 0;
 	
@@ -35,7 +35,10 @@ public class VisualizerManager : MonoBehaviour {
 	protected void Start() {
 		//this.visOps = this.GetComponent<VisOptions>();
 		this.visualizations = new Visualization[datasets.Length];
-		for (int i = 0; i < datasets.Length; i++) {			
+		for (int i = 0; i < datasets.Length; i++) {
+			var dataset = datasets[i];
+			dataset.imageDirectory = Path.GetFullPath(dataset.imageDirectory);
+
 			Visualization v = this.createVisualization(datasets[i]);
 			visualizations[i] = v;
 		}
@@ -61,7 +64,7 @@ public class VisualizerManager : MonoBehaviour {
 		//v.tb = this;
 		v.targetMetadataParser = v.GetComponent<MetadataParser>();
 		//v.pather = this.pather;
-		//v.DoubleSidedMesh = this.DoubleSidedMesh;
+		v.DoubleSidedMesh = this.DoubleSidedMesh;
 		//v.transform.parent = this.sceneParent;
 		return v;
 	}
