@@ -22,7 +22,8 @@
 - [x] check mesh model orientation/anchor (mesh lab)
 - [ ] iterative landmark models (fragmented)
 - [ ] try photogrammetry of la peruse landscape mesh
-- [x] create 3d model la peruse monument and boathouse
+- [x] create 3d model la peruse monument
+- [ ] create 3d model la peruse boathouse
 
 #### Rob:
 - [ ] fix inverted texture on panels
