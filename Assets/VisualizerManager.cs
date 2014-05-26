@@ -22,6 +22,7 @@ public class VisualizerManager : MonoBehaviour {
 	public Visualization[] visualizations;
 	
 	public Mesh DoubleSidedMesh;
+	public GameObject quadTemplate;
 	//public LockToPath pather;
 	public int currentlySelectedVis = 0;
 	
@@ -65,6 +66,7 @@ public class VisualizerManager : MonoBehaviour {
 		v.targetMetadataParser = v.GetComponent<MetadataParser>();
 		//v.pather = this.pather;
 		v.DoubleSidedMesh = this.DoubleSidedMesh;
+		v.quadTemplate = this.quadTemplate;
 		//v.transform.parent = this.sceneParent;
 		return v;
 	}
