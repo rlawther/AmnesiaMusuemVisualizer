@@ -140,7 +140,6 @@ public class VisualizationTVis : MonoBehaviour {
 				pos.z = Mathf.Sin (ang) * dist;
 				
 				q.localPosition = pos;
-				//q.localRotation = Quaternion.LookRotation(Vector3.zero, Vector3.up);
 				q.LookAt(q.localPosition * 2);
 				i++;
 
