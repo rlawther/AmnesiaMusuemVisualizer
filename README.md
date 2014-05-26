@@ -21,9 +21,9 @@
 - [x] low poly landmarks models (mesh lab)
 - [x] check mesh model orientation/anchor (mesh lab)
 - [ ] iterative landmark models (fragmented)
-- [ ] try photogrammetry of la peruse landscape mesh
+- [ ] try photogrammetry of la peruse landscape mesh - _infeasible: tourists, landscape geometry makes this difficult_
 - [x] create 3d model la peruse monument
-- [ ] create 3d model la peruse boathouse
+- [ ] create 3d model la peruse boathouse - _infeasible: tourists, construction mesh makes this difficult_
 
 #### Rob:
 - [ ] fix inverted texture on panels
