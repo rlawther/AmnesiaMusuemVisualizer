@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{20C12701-7E9A-18C6-EBE7-042919724A2B}") = "AmnesiaMusuemVisualizer", "Assembly-CSharp-firstpass-vs.csproj", "{CA80AEAD-A053-25FF-D026-D1272FC458A7}"
+EndProject
 Project("{20C12701-7E9A-18C6-EBE7-042919724A2B}") = "AmnesiaMusuemVisualizer", "Assembly-CSharp-vs.csproj", "{BF30A19F-4FB6-8012-B710-8913C298EB38}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA80AEAD-A053-25FF-D026-D1272FC458A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA80AEAD-A053-25FF-D026-D1272FC458A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA80AEAD-A053-25FF-D026-D1272FC458A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA80AEAD-A053-25FF-D026-D1272FC458A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF30A19F-4FB6-8012-B710-8913C298EB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -17,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-						GlobalSection(MonoDevelopProperties) = preSolution
+										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
