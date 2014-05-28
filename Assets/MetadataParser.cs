@@ -86,4 +86,5 @@ public class MetaDataItem {
 		return filename + "\n" + "[" + latitude+","+longitude+","+altitude+"]" + "{"+xOrientation+","+yOrientation+","+zOrientation+"}";
 	}
 	public Transform transform;
+	public Material material;
 }

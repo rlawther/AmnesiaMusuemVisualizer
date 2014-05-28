@@ -93,11 +93,12 @@ public class VisualizationTVis : MonoBehaviour {
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(1, 1, 1);
+			q.transform.localScale = new Vector3(1.33f, 1, 1);
 
 			StartCoroutine(WaitForTexture(q,mdi));
 
 			mdi.transform = q.transform;
+			mdi.material = q.renderer.material;
 			quadList[i] = q.transform;
 
 			i += 1;

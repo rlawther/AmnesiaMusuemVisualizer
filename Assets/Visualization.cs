@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ReadWriteCsv;
 
 public class Visualization : MonoBehaviour {
 	private bool createdQuads = false;
@@ -38,6 +39,8 @@ public class Visualization : MonoBehaviour {
 	// Use this for initialization
 	private const double m_per_deg_lat = 111132.954f;
 	private const double m_per_deg_lon = 111132.954f;
+	public bool tvisLayout = false;
+
 	void Start () {
 	
 	}
@@ -82,7 +85,14 @@ public class Visualization : MonoBehaviour {
 	}
 
 	protected void createQuads() {
-		//Shader transDiff = Shader.Find ("Transparent/Diffuse");
+		if (tvisLayout)
+			createQuadsTVis();
+		else
+			createQuadsGPS();
+	}
+
+	protected void createQuadsGPS() {
+			//Shader transDiff = Shader.Find ("Transparent/Diffuse");
 		this.quadList = new Transform[this.targetMetadataParser.output.Count];
 		int i = 0;
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
@@ -97,6 +107,7 @@ public class Visualization : MonoBehaviour {
 			StartCoroutine(WaitForTexture(q,mdi));
 
 			mdi.transform = q.transform;
+			mdi.material = q.renderer.material;
 			quadList[i] = q.transform;
 
 			i += 1;
@@ -107,14 +118,44 @@ public class Visualization : MonoBehaviour {
 		
 	}
 
+	protected void createQuadsTVis() {
+		this.quadList = new Transform[this.targetMetadataParser.output.Count];
+		int i = 0;
+		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+			/* Create a new quad for the image */
+			GameObject q = (GameObject)Instantiate(quadTemplate);
+			q.SetActive(true);
+			
+			q.transform.parent = this.transform;
+			q.transform.localScale = new Vector3(1.33f, 1, 1);
+			
+			StartCoroutine(WaitForTexture(q,mdi));
+			
+			mdi.transform = q.transform;
+			mdi.material = q.renderer.material;
+			quadList[i] = q.transform;
+			
+			i += 1;
+			
+		}
+		this.canUpdateLive = true;
+		this.calculateQuadPositions();
+	}
+
 	private IEnumerator WaitForTexture (GameObject q,MetaDataItem mdi)
 	{
 		WWW www = new WWW ("file:///" + this.imageDirectory + "/" + mdi.filename);
 		yield return www;
 		q.renderer.material.mainTexture = www.texture;
 	}
-	
 	void calculateQuadPositions() {
+		if (tvisLayout)
+			calculateQuadPositionsTVis();
+		else
+			calculateQuadPositionsGPS();
+	}
+
+	void calculateQuadPositionsGPS() {
 		//http://stackoverflow.com/a/19356480/1342750
 //		float latMid = (targetMetadataParser.min.latitude + targetMetadataParser.max.latitude)/2.0f;
 //		float m_per_deg_lat = (float)(111132.954 - 559.822 * Mathf.Cos( 2 * latMid ) + 1.175 * Mathf.Cos( 4 * latMid));
@@ -144,6 +185,37 @@ public class Visualization : MonoBehaviour {
 			}
 			
 		}
+	}
+
+	void calculateQuadPositionsTVis() {
+		CsvRow row = new CsvRow();
+		int i = 0;
+
+		using (CsvFileReader reader = new CsvFileReader("Assets/TVis.layout")) 
+		{
+			foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+				float ang, dist;
+				
+				reader.ReadRow(row);
+				//Debug.Log (row[0] + ", " + row[1] + ", " + row[2]);
+				Transform q = mdi.transform;
+				Vector3 pos = q.localPosition;
+				ang = float.Parse(row[0]) * Mathf.PI * 2;
+				dist = float.Parse(row[2]);
+				pos.x = Mathf.Cos (ang) * dist;
+				pos.y = float.Parse(row[1]);
+				pos.z = Mathf.Sin (ang) * dist;
+				
+				q.localPosition = pos;
+				q.LookAt(q.localPosition * 2);
+				i++;
+				
+				/* Only displays the first 350 quads */
+				if (i >= 350)
+					break;				
+			}
+		}
+
 	}
 
 	public Vector3 calculateParentGPS() {
