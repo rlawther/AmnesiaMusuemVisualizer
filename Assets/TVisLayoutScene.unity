@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   datasets:
-  - csvMetadataFile: Assets\DATA\image_table_1.CSV
-    imageDirectory: Assets\DATA\autographer_3March_BoyCarlton_Img640480
+  - csvMetadataFile: Assets/DATA/image_table_1.CSV
+    imageDirectory: Assets/DATA/autographer_3March_BoyCarlton_Img640480
     imageExtension: 2.jpg
   visualizations: []
   DoubleSidedMesh: {fileID: 0}
