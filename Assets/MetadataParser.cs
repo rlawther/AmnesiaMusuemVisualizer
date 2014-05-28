@@ -80,10 +80,13 @@ public class MetaDataItem {
 	public float xOrientation;
 	public float yOrientation;
 	public float zOrientation;
+
+	public float heading;
 	
 	public override string ToString ()
 	{
 		return filename + "\n" + "[" + latitude+","+longitude+","+altitude+"]" + "{"+xOrientation+","+yOrientation+","+zOrientation+"}";
 	}
 	public Transform transform;
+	public Material material;
 }
