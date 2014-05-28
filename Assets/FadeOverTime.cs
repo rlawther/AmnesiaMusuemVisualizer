@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FadeOverTime : MonoBehaviour {
 
+	public bool fadeOut = false;
+	public float fadeOutMin = 0.2f;
+	public int beforeFadeOut = 1;
 	private VisualizerManager mVisManager;
 	private Visualization[] mVisualizations;
 	private Visualization mCurrentVis;
@@ -17,7 +21,6 @@ public class FadeOverTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		firstPersonTransform = gameObject.GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +29,7 @@ public class FadeOverTime : MonoBehaviour {
 		if (mState == States.NONE)
 		{
 			/* Press SPACE to start fading */
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Input.GetKeyDown(KeyCode.F))
 			{
 				mVisManager = gameObject.GetComponent<VisualizerManager>();
 				mVisualizations = mVisManager.visualizations;
@@ -51,17 +54,24 @@ public class FadeOverTime : MonoBehaviour {
 			prevIndex = (int)Mathf.Floor(timeSincePathStart * picsPerSecond);
 			nextIndex = (int)Mathf.Ceil(timeSincePathStart * picsPerSecond);
 
-			if (prevIndex == nextIndex)
+			mCurrentVis.targetMetadataParser.output[prevIndex].material.color = new Color(1.0f, 1.0f, 1.0f, (timeSincePathStart * picsPerSecond) - prevIndex);
+			try {
+				if (fadeOut)
+				{
+					float alpha = 1 - ((timeSincePathStart * picsPerSecond) - prevIndex);
+					if (alpha < fadeOutMin)
+						alpha = fadeOutMin;
+
+					mCurrentVis.targetMetadataParser.output[prevIndex - beforeFadeOut].material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
+					mCurrentVis.targetMetadataParser.output[prevIndex - beforeFadeOut - 1].material.color = new Color(1.0f, 1.0f, 1.0f, fadeOutMin);
+				}
+			} 
+			catch (Exception e) 
 			{
-				/* If we're right on a waypoint use that waypoint ...*/
-				firstPersonTransform.position = mCurrentVis.targetMetadataParser.output[prevIndex].transform.position;
+				//Debug.Log ("exception" + e);
 			}
-			else
-			{
-				/* ... otherwise lerp between adjacent waypoints */
-				mCurrentVis.targetMetadataParser.output[prevIndex].material.color = new Color(1.0f, 1.0f, 1.0f, (timeSincePathStart * picsPerSecond) - prevIndex);
-				Debug.Log ((timeSincePathStart * picsPerSecond) - prevIndex);
-			}
+
+		
 		}
 	}
 }

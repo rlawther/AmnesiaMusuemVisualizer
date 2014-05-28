@@ -162,7 +162,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 239b5fefaa9bf0942a22a34213debd61, type: 2}
+  - {fileID: 2100000, guid: 3e0fd27e97ffead44bbebb13ccdd2f88, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -214,7 +214,6 @@ GameObject:
   - 114: {fileID: 1274354647}
   - 114: {fileID: 1274354646}
   - 114: {fileID: 1274354645}
-  - 114: {fileID: 1274354644}
   - 114: {fileID: 1274354650}
   - 114: {fileID: 1274354651}
   m_Layer: 0
@@ -224,26 +223,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1274354644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1274354643}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1bf876c926db041bd1b45408c84924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  datasets:
-  - csvMetadataFile: Assets\DATA\image_table_1.CSV
-    imageDirectory: Assets\DATA\autographer_3March_BoyCarlton_Img640480
-    imageExtension: 2.jpg
-  visualizations: []
-  DoubleSidedMesh: {fileID: 0}
-  quadTemplate: {fileID: 784081764}
-  currentlySelectedVis: 0
-  lineMaterial: {fileID: 0}
 --- !u!114 &1274354645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8307870c61a6d9c42b106aba95553042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeOut: 0
   picsPerSecond: 1
 --- !u!114 &1274354651
 MonoBehaviour:
@@ -388,7 +368,6 @@ MonoBehaviour:
     imageDirectory: Assets\DATA\autographer_3March_BoyCarlton_Img640480
     imageExtension: 2.jpg
   visualizations: []
-  DoubleSidedMesh: {fileID: 0}
   quadTemplate: {fileID: 784081764}
   currentlySelectedVis: 0
   lineMaterial: {fileID: 0}

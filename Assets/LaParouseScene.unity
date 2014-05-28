@@ -918,6 +918,7 @@ GameObject:
   - 114: {fileID: 1115516426}
   - 114: {fileID: 1115516431}
   - 114: {fileID: 1115516432}
+  - 114: {fileID: 1115516433}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -1051,12 +1052,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dc083e991181d429783c574ceb62c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tvisLayout: 0
   datasets:
   - csvMetadataFile: Assets/DATA/image_table_1.CSV
     imageDirectory: Assets/DATA/autographer_3March_BoyCarlton_Img640480
     imageExtension: 2.jpg
   visualizations: []
-  DoubleSidedMesh: {fileID: 4300000, guid: e6703ac1ca35fb54d842a014e603af68, type: 2}
   quadTemplate: {fileID: 1352131302}
   currentlySelectedVis: 0
   lineMaterial: {fileID: 0}
@@ -1066,12 +1067,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1115516425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95d028394ecc8b348b610054856d1423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   picsPerSecond: .5
+--- !u!114 &1115516433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115516425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8307870c61a6d9c42b106aba95553042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOut: 0
+  picsPerSecond: 1
 --- !u!1 &1123196076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1219,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 239b5fefaa9bf0942a22a34213debd61, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

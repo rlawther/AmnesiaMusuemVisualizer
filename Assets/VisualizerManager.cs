@@ -23,7 +23,7 @@ public class VisualizerManager : MonoBehaviour {
 	
 	public Visualization[] visualizations;
 	
-	public Mesh DoubleSidedMesh;
+	//public Mesh DoubleSidedMesh;
 	public GameObject quadTemplate;
 	//public LockToPath pather;
 	public int currentlySelectedVis = 0;
