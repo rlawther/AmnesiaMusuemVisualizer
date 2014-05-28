@@ -2,7 +2,7 @@
 
 #### Jack
 - [ ] organise asset folder on github (models, datasets with csv and ing folders
-- [ ] illumination of scene
+- [x] illumination of scene
 - [ ] multiple sequences
 - [x] task list in github
 
