@@ -102,7 +102,7 @@ public class Visualization : MonoBehaviour {
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(50, 50, 50);
+			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
 
 			StartCoroutine(WaitForTexture(q,mdi));
 
@@ -171,9 +171,15 @@ public class Visualization : MonoBehaviour {
 			pos.x = (float)((mdi.latitude - targetMetadataParser.min.latitude) * m_per_deg_lat * this.visualizationScale.x);
 			pos.y = (float)((mdi.altitude - targetMetadataParser.min.altitude) * this.visualizationScale.y);
 			pos.z = (float)((mdi.longitude - targetMetadataParser.min.longitude) * m_per_deg_lon * this.visualizationScale.z);
-			
+			pos.x *= -1;
+
+			/* allow us to alter the ypos by setting it on the template quad */
+			pos.y += quadTemplate.transform.position.y;
+
 			q.localPosition = pos;
-			
+			Debug.Log (mdi.heading);
+			q.localRotation = Quaternion.Euler(0, mdi.heading + 90, 0);
+			/*
 			if (rotationMethod == RotationMethod.Euler) {
 				q.localRotation = Quaternion.Euler(mdi.xOrientation  * rotateMult.x + rotateAll.x,
 												mdi.yOrientation * rotateMult.y + rotateAll.y,
@@ -183,6 +189,7 @@ public class Visualization : MonoBehaviour {
 														mdi.yOrientation * rotateMult.y + rotateAll.y,
 														mdi.zOrientation * rotateMult.z + rotateAll.z));
 			}
+			*/
 			
 		}
 	}

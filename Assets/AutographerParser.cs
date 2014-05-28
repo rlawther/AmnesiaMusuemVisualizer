@@ -21,9 +21,8 @@ public class AutographerParser : MetadataParser {
 		public float Gs;
 		public float HorizontalError;
 		public float VerticalError;
+		//public float heading;
 	}
-	
-
 
 	protected string lastFileParsed;
 	
@@ -106,7 +105,8 @@ public class AutographerParser : MetadataParser {
 						filename = row[columns.IndexOf("imgFile")],
 						xOrientation = float.Parse(row[columns.IndexOf("xor")]),
 						yOrientation = float.Parse(row[columns.IndexOf("yor")]),
-						zOrientation = float.Parse(row[columns.IndexOf("zor")])
+						zOrientation = float.Parse(row[columns.IndexOf("zor")]),
+						heading = float.Parse(row[columns.IndexOf("heading")])
 					});
 				}
 				rowIndex++;

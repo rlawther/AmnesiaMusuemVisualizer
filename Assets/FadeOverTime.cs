@@ -42,7 +42,7 @@ public class FadeOverTime : MonoBehaviour {
 		else if (mState == States.FADING)
 		{
 			/* Press SPACE again to stop following */
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Input.GetKeyDown(KeyCode.F))
 			{
 				mState = States.NONE;
 			}	
