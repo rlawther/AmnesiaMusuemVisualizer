@@ -85,29 +85,30 @@ public class AutographerParser : MetadataParser {
 					}
 				}else{
 					//Other rows to fill data
-					result.Add (new AutographerMetaDataItem(){
-						id = row[columns.IndexOf("id")],
-						dt = row[columns.IndexOf("dt")],
-						AccuracyX = float.Parse(row[columns.IndexOf("accx")]),
-						AccuracyY = float.Parse(row[columns.IndexOf("accy")]),
-						AccuracyZ = float.Parse(row[columns.IndexOf("accz")]),
-						MagnitudeX = float.Parse(row[columns.IndexOf("magx")]),
-						MagnitudeY = float.Parse(row[columns.IndexOf("magy")]),
-						MagnitudeZ = float.Parse(row[columns.IndexOf("magz")]),
-						Red = int.Parse(row[columns.IndexOf("red")]),
-						Blue = int.Parse(row[columns.IndexOf("blue")]),
-						Green = int.Parse(row[columns.IndexOf("green")]),
-						Luminance = float.Parse(row[columns.IndexOf("lum")]),
-						Temperature = float.Parse(row[columns.IndexOf("tem")]),
-						Gs = float.Parse(row[columns.IndexOf("g")]),
-						latitude = float.Parse(row[columns.IndexOf("lat")]),
-						longitude = float.Parse(row[columns.IndexOf("lon")]),
-						filename = row[columns.IndexOf("imgFile")],
-						xOrientation = float.Parse(row[columns.IndexOf("xor")]),
-						yOrientation = float.Parse(row[columns.IndexOf("yor")]),
-						zOrientation = float.Parse(row[columns.IndexOf("zor")]),
-						heading = float.Parse(row[columns.IndexOf("heading")])
-					});
+					var dataItem = new AutographerMetaDataItem();
+					dataItem.id = row[columns.IndexOf("id")];
+					dataItem.dt = row[columns.IndexOf("dt")];
+					dataItem.AccuracyX = float.Parse(row[columns.IndexOf("accx")]);
+					dataItem.AccuracyY = float.Parse(row[columns.IndexOf("accy")]);
+					dataItem.AccuracyZ = float.Parse(row[columns.IndexOf("accz")]);
+					dataItem.MagnitudeX = float.Parse(row[columns.IndexOf("magx")]);
+					dataItem.MagnitudeY = float.Parse(row[columns.IndexOf("magy")]);
+					dataItem.MagnitudeZ = float.Parse(row[columns.IndexOf("magz")]);
+					dataItem.Red = int.Parse(row[columns.IndexOf("red")]);
+					dataItem.Blue = int.Parse(row[columns.IndexOf("blue")]);
+					dataItem.Green = int.Parse(row[columns.IndexOf("green")]);
+					dataItem.Luminance = float.Parse(row[columns.IndexOf("lum")]);
+					dataItem.Temperature = float.Parse(row[columns.IndexOf("tem")]);
+					dataItem.Gs = float.Parse(row[columns.IndexOf("g")]);
+					dataItem.latitude = float.Parse(row[columns.IndexOf("lat")]);
+					dataItem.longitude = float.Parse(row[columns.IndexOf("lon")]);
+					dataItem.filename = row[columns.IndexOf("imgFile")];
+					dataItem.xOrientation = float.Parse(row[columns.IndexOf("xor")]);
+					dataItem.yOrientation = float.Parse(row[columns.IndexOf("yor")]);
+					dataItem.zOrientation = float.Parse(row[columns.IndexOf("zor")]);
+					dataItem.heading = float.Parse(row[columns.IndexOf("heading")]);
+					
+					result.Add (dataItem);
 				}
 				rowIndex++;
 			}
