@@ -98,23 +98,26 @@ public class Visualization : MonoBehaviour {
 		int i = 0;
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			/* Create a new quad for the image */
-			if (mdi.priority > 0)
+			GameObject q;
+			q = (GameObject)Instantiate(quadTemplate);
+			q.SetActive(true);
+			StartCoroutine(WaitForTexture(q,mdi));
+			mdi.material = q.renderer.material;
+			if (mdi.priority <= 0)
 			{
-				GameObject q = (GameObject)Instantiate(quadTemplate);
-				q.SetActive(true);
-
-				q.transform.parent = this.transform;
-				// make them big enough to see easily
-				q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
-
-				StartCoroutine(WaitForTexture(q,mdi));
-
-				mdi.transform = q.transform;
-				mdi.material = q.renderer.material;
-				quadList[i] = q.transform;
-
-				i += 1;
+				q.renderer.enabled = false;
 			}
+
+			q.transform.parent = this.transform;
+			// make them big enough to see easily
+			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
+
+
+			mdi.transform = q.transform;
+			quadList[i] = q.transform;
+
+			i += 1;
+
 
 		}
 		this.canUpdateLive = true;
