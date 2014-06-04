@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ReadWriteCsv;
 using System;
 
@@ -86,10 +87,25 @@ public class Visualization : MonoBehaviour {
 	}
 
 	protected void createQuads() {
+		removeLowPriorityItems();
 		if (tvisLayout)
 			createQuadsTVis();
 		else
 			createQuadsGPS();
+	}
+
+	protected void removeLowPriorityItems()
+	{
+		List<MetaDataItem> killList = new List<MetaDataItem> ();
+		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+			if (mdi.priority <= 0) {
+				killList.Add (mdi);
+			}
+		}
+		foreach (MetaDataItem mdi in killList) {
+			Debug.Log ("removing " + mdi.filename);
+			this.targetMetadataParser.output.Remove (mdi);
+		}
 	}
 
 	protected void createQuadsGPS() {
@@ -103,10 +119,12 @@ public class Visualization : MonoBehaviour {
 			q.SetActive(true);
 			StartCoroutine(WaitForTexture(q,mdi));
 			mdi.material = q.renderer.material;
+			/*
 			if (mdi.priority <= 0)
 			{
 				q.renderer.enabled = false;
 			}
+			*/
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
