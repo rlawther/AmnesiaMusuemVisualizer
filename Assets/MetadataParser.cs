@@ -82,6 +82,7 @@ public class MetaDataItem {
 	public float zOrientation;
 
 	public float heading;
+	public int priority;
 	
 	public override string ToString ()
 	{
