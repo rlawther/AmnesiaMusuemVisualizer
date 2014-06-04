@@ -177,7 +177,6 @@ public class Visualization : MonoBehaviour {
 			pos.y += quadTemplate.transform.position.y;
 
 			q.localPosition = pos;
-			Debug.Log (mdi.heading);
 			q.localRotation = Quaternion.Euler(0, mdi.heading + 90, 0);
 			/*
 			if (rotationMethod == RotationMethod.Euler) {
