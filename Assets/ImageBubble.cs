@@ -14,11 +14,19 @@ public class ImageBubble : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var currentVis = this.visManager.visualizations [visManager.currentlySelectedVis];
-		foreach (var imageItem in currentVis.targetMetadataParser.output) {
-			var distance = Vector3.Distance(imageItem.transform.position,gameObject.transform.position);
-			var opacity = distance/divider -offset;
-			imageItem.material.color = new Color(1.0f, 1.0f, 1.0f,opacity);
+		foreach (var currentVis in this.visManager.visualizations) {
+			if(currentVis.targetMetadataParser.output == null)
+				continue;
+
+			foreach (var imageItem in currentVis.targetMetadataParser.output) {
+				//If the item doesn't have a transform, go to the next item. 
+				if (imageItem.transform == null)
+					continue;
+
+				var distance = Vector3.Distance (imageItem.transform.position, gameObject.transform.position);
+				var opacity = distance / divider - offset;
+				imageItem.material.color = new Color (1.0f, 1.0f, 1.0f, opacity);
+			}
 		}
 	}
 }
