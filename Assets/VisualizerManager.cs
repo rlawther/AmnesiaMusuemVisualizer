@@ -41,6 +41,7 @@ public class VisualizerManager : MonoBehaviour {
 		for (int i = 0; i < datasets.Length; i++) {
 			var dataset = datasets[i];
 			dataset.imageDirectory = Path.GetFullPath(dataset.imageDirectory);
+			dataset.csvMetadataFile = Path.GetFullPath(dataset.csvMetadataFile);
 
 			Visualization v = this.createVisualization(datasets[i]);
 			visualizations[i] = v;
