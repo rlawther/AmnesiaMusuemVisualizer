@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ReadWriteCsv;
+using System;
 
 public class Visualization : MonoBehaviour {
 	private bool createdQuads = false;
@@ -85,10 +87,25 @@ public class Visualization : MonoBehaviour {
 	}
 
 	protected void createQuads() {
+		removeLowPriorityItems();
 		if (tvisLayout)
 			createQuadsTVis();
 		else
 			createQuadsGPS();
+	}
+
+	protected void removeLowPriorityItems()
+	{
+		List<MetaDataItem> killList = new List<MetaDataItem> ();
+		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+			if (mdi.priority <= 0) {
+				killList.Add (mdi);
+			}
+		}
+		foreach (MetaDataItem mdi in killList) {
+			Debug.Log ("removing " + mdi.filename);
+			this.targetMetadataParser.output.Remove (mdi);
+		}
 	}
 
 	protected void createQuadsGPS() {
@@ -97,20 +114,28 @@ public class Visualization : MonoBehaviour {
 		int i = 0;
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			/* Create a new quad for the image */
-			GameObject q = (GameObject)Instantiate(quadTemplate);
+			GameObject q;
+			q = (GameObject)Instantiate(quadTemplate);
 			q.SetActive(true);
+			StartCoroutine(WaitForTexture(q,mdi));
+			mdi.material = q.renderer.material;
+			/*
+			if (mdi.priority <= 0)
+			{
+				q.renderer.enabled = false;
+			}
+			*/
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
 
-			StartCoroutine(WaitForTexture(q,mdi));
 
 			mdi.transform = q.transform;
-			mdi.material = q.renderer.material;
 			quadList[i] = q.transform;
 
 			i += 1;
+
 
 		}
 		this.canUpdateLive = true;
@@ -165,6 +190,8 @@ public class Visualization : MonoBehaviour {
 		
 		
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+			try{
+
 			Transform q = mdi.transform;
 			
 			Vector3 pos = q.localPosition;
@@ -177,7 +204,6 @@ public class Visualization : MonoBehaviour {
 			pos.y += quadTemplate.transform.position.y;
 
 			q.localPosition = pos;
-			Debug.Log (mdi.heading);
 			q.localRotation = Quaternion.Euler(0, mdi.heading + 90, 0);
 			/*
 			if (rotationMethod == RotationMethod.Euler) {
@@ -190,6 +216,9 @@ public class Visualization : MonoBehaviour {
 														mdi.zOrientation * rotateMult.z + rotateAll.z));
 			}
 			*/
+			} catch (NullReferenceException e)
+			{
+			}
 			
 		}
 	}

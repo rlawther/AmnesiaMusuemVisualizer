@@ -28,7 +28,7 @@ public class FadeOverTime : MonoBehaviour {
 
 		if (mState == States.NONE)
 		{
-			/* Press SPACE to start fading */
+			/* Press F to start fading */
 			if (Input.GetKeyDown(KeyCode.F))
 			{
 				mVisManager = gameObject.GetComponent<VisualizerManager>();
@@ -41,7 +41,7 @@ public class FadeOverTime : MonoBehaviour {
 		}
 		else if (mState == States.FADING)
 		{
-			/* Press SPACE again to stop following */
+			/* Press F again to stop fading */
 			if (Input.GetKeyDown(KeyCode.F))
 			{
 				mState = States.NONE;
