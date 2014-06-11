@@ -17,8 +17,8 @@ RenderSettings:
   m_FogMode: 3
   m_FogDensity: .00499999989
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientLight: {r: 1, g: 1, b: 1, a: 1}
+  m_LinearFogEnd: 10
+  m_AmbientLight: {r: .397058845, g: .397058845, b: .397058845, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -1451,7 +1451,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: .5
   m_Radius: .100000001
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 50
   m_SkinWidth: 10
   m_MinMoveDistance: 0
@@ -1463,7 +1463,7 @@ Transform:
   m_PrefabInternal: {fileID: 1760345333}
   m_GameObject: {fileID: 1115516425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.7649231, y: 3.56466675, z: 82.5719147}
+  m_LocalPosition: {x: 1001.841, y: -23.6372375, z: 222.179443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1055853344}
@@ -1960,7 +1960,7 @@ Prefab:
     - target: {fileID: 2300000, guid: ebbc6988737de374f93fc744604979a8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3280eddffccd62b4a8c5b224a18a7e39, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f3b45676df4b4059be3d09e64bbd5af, type: 2}
     - target: {fileID: 400002, guid: ebbc6988737de374f93fc744604979a8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2030,15 +2030,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.7649231
+      value: 1001.841
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.56466675
+      value: -23.6372375
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 82.5719147
+      value: 222.179443
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2152,6 +2152,10 @@ Prefab:
       propertyPath: movement.maxAirAcceleration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_SlopeLimit
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
   m_RootGameObject: {fileID: 1115516425}
@@ -2230,7 +2234,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3280eddffccd62b4a8c5b224a18a7e39, type: 2}
+  - {fileID: 2100000, guid: 6f3b45676df4b4059be3d09e64bbd5af, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
