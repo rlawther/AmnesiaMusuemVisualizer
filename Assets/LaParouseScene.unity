@@ -1404,6 +1404,7 @@ GameObject:
   - 114: {fileID: 1115516432}
   - 114: {fileID: 1115516433}
   - 114: {fileID: 1115516434}
+  - 114: {fileID: 1115516435}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -1540,6 +1541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tvisLayout: 0
   datasets:
+  - csvMetadataFile: Assets/DATA/g1_smooth_combined.csv
+    imageDirectory: Assets/DATA/G1_img_sml
+    imageExtension: 
   - csvMetadataFile: Assets/DATA/g2_smooth_combined.csv
     imageDirectory: Assets/DATA/G2_img_sml
     imageExtension: 
@@ -1587,6 +1591,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1
   divider: 10
+--- !u!114 &1115516435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115516425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0745469c9e91294986210c5ff676b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123196076
 GameObject:
   m_ObjectHideFlags: 0

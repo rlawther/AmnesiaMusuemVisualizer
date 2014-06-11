@@ -78,9 +78,12 @@ public class VisualizerManager : MonoBehaviour {
 
 	protected void Update() {
 		this.handleInput();
+		/*
+		this.pathwaysSynced = true;
 		if (!this.pathwaysSynced) {
 			this.syncGPSPathways();
 		}
+		*/
 			
 	}
 

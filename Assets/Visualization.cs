@@ -146,6 +146,7 @@ public class Visualization : MonoBehaviour {
 			
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
+			mdi.quad = q;
 
 			i += 1;
 
@@ -171,6 +172,7 @@ public class Visualization : MonoBehaviour {
 			
 			mdi.transform = q.transform;
 			mdi.material = q.renderer.material;
+			mdi.quad = q;
 			quadList[i] = q.transform;
 			
 			i += 1;
@@ -208,9 +210,9 @@ public class Visualization : MonoBehaviour {
 			Transform q = mdi.transform;
 			
 			Vector3 pos = q.localPosition;
-			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat * this.visualizationScale.x);
-			pos.y = (float)((mdi.altitude - altitudeOrigin) * this.visualizationScale.y);
-			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon * this.visualizationScale.z);
+			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat);
+			pos.y = (float)((mdi.altitude - altitudeOrigin));
+			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon);
 			pos.x *= -1;
 
 			/* allow us to alter the ypos by setting it on the template quad */

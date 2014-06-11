@@ -90,4 +90,5 @@ public class MetaDataItem {
 	}
 	public Transform transform;
 	public Material material;
+	public GameObject quad;
 }
