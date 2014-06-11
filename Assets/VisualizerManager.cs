@@ -78,9 +78,12 @@ public class VisualizerManager : MonoBehaviour {
 
 	protected void Update() {
 		this.handleInput();
+		/*
+		this.pathwaysSynced = true;
 		if (!this.pathwaysSynced) {
 			this.syncGPSPathways();
 		}
+		*/
 			
 	}
 
@@ -97,7 +100,7 @@ public class VisualizerManager : MonoBehaviour {
 		}
 		this.pathwaysSynced = true;
 	}
-	protected void setCurrentVisualization(int num) {
+	public void setCurrentVisualization(int num) {
 		this.currentlySelectedVis = num;
 		//this.pather.registerPath(this.visualizations[currentlySelectedVis].quadList);
 	}

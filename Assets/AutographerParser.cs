@@ -87,6 +87,14 @@ public class AutographerParser : MetadataParser {
 					var dataItem = new AutographerMetaDataItem();
 					dataItem.id = row[columns.IndexOf("id")];
 					dataItem.dt = row[columns.IndexOf("dt")];
+					dataItem.latitude = float.Parse(row[columns.IndexOf("lat_smooth")]);
+					dataItem.longitude = float.Parse(row[columns.IndexOf("lon_smooth")]);
+					dataItem.filename = row[columns.IndexOf("imgFile")];
+					dataItem.heading = float.Parse(row[columns.IndexOf("heading")]);
+					dataItem.priority = int.Parse(row[columns.IndexOf("priority")]);
+
+					/*
+					 * These fiels not used and not always present in CSV file ...
 					dataItem.AccuracyX = float.Parse(row[columns.IndexOf("accx")]);
 					dataItem.AccuracyY = float.Parse(row[columns.IndexOf("accy")]);
 					dataItem.AccuracyZ = float.Parse(row[columns.IndexOf("accz")]);
@@ -99,14 +107,10 @@ public class AutographerParser : MetadataParser {
 					dataItem.Luminance = float.Parse(row[columns.IndexOf("lum")]);
 					dataItem.Temperature = float.Parse(row[columns.IndexOf("tem")]);
 					dataItem.Gs = float.Parse(row[columns.IndexOf("g")]);
-					dataItem.latitude = float.Parse(row[columns.IndexOf("lat_smooth")]);
-					dataItem.longitude = float.Parse(row[columns.IndexOf("lon_smooth")]);
-					dataItem.filename = row[columns.IndexOf("imgFile")];
 					dataItem.xOrientation = float.Parse(row[columns.IndexOf("xor")]);
 					dataItem.yOrientation = float.Parse(row[columns.IndexOf("yor")]);
 					dataItem.zOrientation = float.Parse(row[columns.IndexOf("zor")]);
-					dataItem.heading = float.Parse(row[columns.IndexOf("heading")]);
-					dataItem.priority = int.Parse(row[columns.IndexOf("priority")]);
+					*/
 
 					result.Add (dataItem);
 				}
