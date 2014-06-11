@@ -122,7 +122,7 @@ public class Visualization : MonoBehaviour {
 			GameObject q;
 			q = (GameObject)Instantiate(quadTemplate);
 			q.SetActive(true);
-			//StartCoroutine(WaitForTexture(q,mdi));
+			StartCoroutine(WaitForTexture(q,mdi));
 			mdi.material = q.renderer.material;
 			/*
 			if (mdi.priority <= 0)
@@ -133,14 +133,20 @@ public class Visualization : MonoBehaviour {
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
-			//q.transform.localScale = new Vector3(10.0f * 1.33f, 10.0f, 10.0f);
+			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
+			/*
+			 * This is just used so you can see the position of the quads more easily
+			 * for debugging etc.
+			 *
 			q.transform.localScale = new Vector3(7.0f, 7.0f, 7.0f);
 			q.renderer.sharedMaterial = quadTemplate.renderer.material;
 			quadTemplate.renderer.material.color = Color.red;
+			*/
 
 			
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
+			mdi.quad = q;
 
 			i += 1;
 
@@ -166,6 +172,7 @@ public class Visualization : MonoBehaviour {
 			
 			mdi.transform = q.transform;
 			mdi.material = q.renderer.material;
+			mdi.quad = q;
 			quadList[i] = q.transform;
 			
 			i += 1;
@@ -203,9 +210,9 @@ public class Visualization : MonoBehaviour {
 			Transform q = mdi.transform;
 			
 			Vector3 pos = q.localPosition;
-			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat * this.visualizationScale.x);
-			pos.y = (float)((mdi.altitude - altitudeOrigin) * this.visualizationScale.y);
-			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon * this.visualizationScale.z);
+			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat);
+			pos.y = (float)((mdi.altitude - altitudeOrigin));
+			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon);
 			pos.x *= -1;
 
 			/* allow us to alter the ypos by setting it on the template quad */
