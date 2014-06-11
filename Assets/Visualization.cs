@@ -16,6 +16,11 @@ public class Visualization : MonoBehaviour {
 	
 	public float quadScale = 1f;
 	private float _quadScale = 1f;
+
+	private float latitudeOrigin = -33.980f;
+	private float longitudeOrigin = 151.230f;
+	private float altitudeOrigin = 30.0f;
+
 	
 	public enum RotationMethod
 	{
@@ -195,9 +200,9 @@ public class Visualization : MonoBehaviour {
 			Transform q = mdi.transform;
 			
 			Vector3 pos = q.localPosition;
-			pos.x = (float)((mdi.latitude - targetMetadataParser.min.latitude) * m_per_deg_lat * this.visualizationScale.x);
-			pos.y = (float)((mdi.altitude - targetMetadataParser.min.altitude) * this.visualizationScale.y);
-			pos.z = (float)((mdi.longitude - targetMetadataParser.min.longitude) * m_per_deg_lon * this.visualizationScale.z);
+			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat * this.visualizationScale.x);
+			pos.y = (float)((mdi.altitude - altitudeOrigin) * this.visualizationScale.y);
+			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon * this.visualizationScale.z);
 			pos.x *= -1;
 
 			/* allow us to alter the ypos by setting it on the template quad */
