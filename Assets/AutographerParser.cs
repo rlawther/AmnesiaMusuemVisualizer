@@ -99,8 +99,8 @@ public class AutographerParser : MetadataParser {
 					dataItem.Luminance = float.Parse(row[columns.IndexOf("lum")]);
 					dataItem.Temperature = float.Parse(row[columns.IndexOf("tem")]);
 					dataItem.Gs = float.Parse(row[columns.IndexOf("g")]);
-					dataItem.latitude = float.Parse(row[columns.IndexOf("lat")]);
-					dataItem.longitude = float.Parse(row[columns.IndexOf("lon")]);
+					dataItem.latitude = float.Parse(row[columns.IndexOf("lat_smooth")]);
+					dataItem.longitude = float.Parse(row[columns.IndexOf("lon_smooth")]);
 					dataItem.filename = row[columns.IndexOf("imgFile")];
 					dataItem.xOrientation = float.Parse(row[columns.IndexOf("xor")]);
 					dataItem.yOrientation = float.Parse(row[columns.IndexOf("yor")]);

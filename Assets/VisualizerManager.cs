@@ -20,7 +20,8 @@ public class VisualizerManager : MonoBehaviour {
 	public Dataset[] datasets;
 	private string rootDir;
 	//public string[] rootFolders;
-	
+
+	[HideInInspector]
 	public Visualization[] visualizations;
 	
 	//public Mesh DoubleSidedMesh;

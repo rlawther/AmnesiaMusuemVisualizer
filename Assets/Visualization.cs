@@ -122,7 +122,7 @@ public class Visualization : MonoBehaviour {
 			GameObject q;
 			q = (GameObject)Instantiate(quadTemplate);
 			q.SetActive(true);
-			StartCoroutine(WaitForTexture(q,mdi));
+			//StartCoroutine(WaitForTexture(q,mdi));
 			mdi.material = q.renderer.material;
 			/*
 			if (mdi.priority <= 0)
@@ -133,9 +133,12 @@ public class Visualization : MonoBehaviour {
 
 			q.transform.parent = this.transform;
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
+			//q.transform.localScale = new Vector3(10.0f * 1.33f, 10.0f, 10.0f);
+			q.transform.localScale = new Vector3(7.0f, 7.0f, 7.0f);
+			q.renderer.sharedMaterial = quadTemplate.renderer.material;
+			quadTemplate.renderer.material.color = Color.red;
 
-
+			
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
 
