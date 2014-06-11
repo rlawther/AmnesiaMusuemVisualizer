@@ -100,7 +100,7 @@ public class VisualizerManager : MonoBehaviour {
 		}
 		this.pathwaysSynced = true;
 	}
-	protected void setCurrentVisualization(int num) {
+	public void setCurrentVisualization(int num) {
 		this.currentlySelectedVis = num;
 		//this.pather.registerPath(this.visualizations[currentlySelectedVis].quadList);
 	}

@@ -70,6 +70,7 @@ public class SelectPath : MonoBehaviour {
 				} catch (Exception e) {
 					Debug.Log ("Could not make path " + changeTo + " visible.");
 				}
+				mVisManager.setCurrentVisualization(changeTo - 1);
 			}
 		}	
 	}
